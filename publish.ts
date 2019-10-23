@@ -7,8 +7,14 @@ import * as path from "path";
 import {Context} from "semantic-release";
 import {Config} from "./index";
 import parallel from "./parallel";
+import {verified} from "./verify-conditions";
 
 export default async function publish(config: Config, context: Context): Promise<void> {
+    if (!verified) {
+        throw new Error("verifyConditions was not called. semantic-release-s3-upload " +
+            "needs to be included in the verifyConditions step");
+    }
+
     const {logger} = context;
 
     const accessKeyId = context.env.AWS_ACCESS_KEY_ID;
