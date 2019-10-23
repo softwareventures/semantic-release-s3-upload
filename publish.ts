@@ -3,6 +3,7 @@ import chain from "@softwareventures/chain";
 import {Credentials, S3} from "aws-sdk";
 import * as fs from "fs";
 import globby = require("globby");
+import {getType} from "mime";
 import * as path from "path";
 import {Context} from "semantic-release";
 import {Config} from "./index";
@@ -46,7 +47,8 @@ export default async function publish(config: Config, context: Context): Promise
                     bucket: dest.bucket,
                     key: dest.prefix
                         ? dest.prefix + "/" + file
-                        : file
+                        : file,
+                    contentType: getType(file)
                 }
             })))))
         .map(files => Promise.all(files))
@@ -58,7 +60,8 @@ export default async function publish(config: Config, context: Context): Promise
                     s3.putObject({
                         Bucket: dest.bucket,
                         Key: dest.key,
-                        Body: fs.createReadStream(file)
+                        Body: fs.createReadStream(file),
+                        ContentType: dest.contentType || void 0
                     }, (err, data) => err ? reject(err) : resolve(data)));
             })))
         .map(actions => actions.then(parallel))
