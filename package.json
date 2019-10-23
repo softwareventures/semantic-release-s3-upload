@@ -1,6 +1,5 @@
 {
-  "private": true,
-  "name": "@softwareventures/semantic-release-s3-upload",
+  "name": "semantic-release-s3-upload",
   "version": "0.0.0-development",
   "description": "semantic-release plugin that uploads files to Amazon S3",
   "keywords": ["semantic-release", "publish", "s3", "aws"],
