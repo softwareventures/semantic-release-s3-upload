@@ -2,7 +2,12 @@
   "name": "semantic-release-s3-upload",
   "version": "0.0.0-development",
   "description": "semantic-release plugin that uploads files to Amazon S3",
-  "keywords": ["semantic-release", "publish", "s3", "aws"],
+  "keywords": [
+    "semantic-release",
+    "publish",
+    "s3",
+    "aws"
+  ],
   "author": "Daniel Cassidy <mail@danielcassidy.me.uk>",
   "homepage": "https://github.com/softwareventures/semantic-release-s3-upload",
   "bugs": "https://github.com/softwareventures/semantic-release-s3-upload",
