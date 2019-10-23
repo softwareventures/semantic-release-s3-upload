@@ -15,14 +15,18 @@
     "test": "tslint --project . && ava"
   },
   "dependencies": {
+    "@softwareventures/array": "^0.16.1",
+    "@softwareventures/chain": "^0.1.2",
+    "aws-sdk": "^2.553.0",
+    "globby": "^10.0.1",
     "tslib": "1.10.0"
   },
   "devDependencies": {
     "@softwareventures/tsconfig": "2.0.0",
     "@softwareventures/tslint-rules": "0.7.1",
+    "@types/semantic-release": "15.13.1",
     "ava": "2.4.0",
     "cz-conventional-changelog": "3.0.2",
-    "semantic-release": "15.13.27",
     "ts-node": "8.4.1",
     "tslint": "5.20.0",
     "typescript": "3.6.4"
@@ -40,5 +44,8 @@
     "require": [
       "ts-node/register"
     ]
+  },
+  "peerDependencies": {
+    "semantic-release": "^15.13.27"
   }
 }
