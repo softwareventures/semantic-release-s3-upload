@@ -3,7 +3,7 @@ import {Config} from "./config";
 
 export let verified = false;
 
-export default async function verifyConditions(config: Config, context: Context): Promise<void> {
+export default async function verify(config: Config, context: Context): Promise<void> {
     const accessKeyId = context.env.AWS_ACCESS_KEY_ID;
     const secretAccessKey = context.env.AWS_SECRET_ACCESS_KEY;
 

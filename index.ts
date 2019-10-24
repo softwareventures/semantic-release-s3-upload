@@ -1,5 +1,5 @@
 import {Config, Upload} from "./config";
 import publish from "./publish";
-import verifyConditions from "./verify-conditions";
+import verify from "./verify";
 
-export {publish, Config, Upload, verifyConditions};
+export {publish, Config, Upload, verify};

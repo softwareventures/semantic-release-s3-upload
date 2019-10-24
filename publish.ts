@@ -8,12 +8,12 @@ import * as path from "path";
 import {Context} from "semantic-release";
 import {Config} from "./index";
 import parallel from "./parallel";
-import {verified} from "./verify-conditions";
+import {verified} from "./verify";
 
 export default async function publish(config: Config, context: Context): Promise<void> {
     if (!verified) {
-        throw new Error("verifyConditions was not called. semantic-release-s3-upload " +
-            "needs to be included in the verifyConditions step");
+        throw new Error("verify.ts was not called. semantic-release-s3-upload " +
+            "needs to be included in the verify.ts step");
     }
 
     const {logger} = context;
