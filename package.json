@@ -18,6 +18,7 @@
     "semantic-release": "semantic-release",
     "test": "tslint --project . && ava"
   },
+  "sideEffects": false,
   "dependencies": {
     "@softwareventures/array": "^0.16.1",
     "@softwareventures/chain": "^0.1.2",
