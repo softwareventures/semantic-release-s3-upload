@@ -24,7 +24,7 @@
     "@softwareventures/chain": "^0.1.2",
     "@types/mime": "^2.0.1",
     "aws-sdk": "^2.553.0",
-    "globby": "^10.0.1",
+    "globby": "^11.0.0",
     "mime": "^2.4.4",
     "tslib": "1.10.0"
   },
