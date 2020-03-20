@@ -1,6 +1,6 @@
 import * as os from "os";
 
-export default function parallel<T>(tasks: ReadonlyArray<() => Promise<T>>, threads = 0): Promise<T[]> {
+export default async function parallel<T>(tasks: ReadonlyArray<() => Promise<T>>, threads = 0): Promise<T[]> {
     if (threads <= 0) {
         threads = os.cpus().length * 2;
     }
@@ -8,7 +8,7 @@ export default function parallel<T>(tasks: ReadonlyArray<() => Promise<T>>, thre
     const results: Array<Promise<T>> = new Array(tasks.length);
     let nextTaskIndex = 0;
 
-    function run(): Promise<void> {
+    async function run(): Promise<void> {
         const i = nextTaskIndex++;
         if (i < tasks.length) {
             const result = tasks[i]();

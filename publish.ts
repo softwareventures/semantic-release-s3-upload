@@ -40,7 +40,7 @@ export default async function publish(config: Config, context: Context): Promise
             },
             dest
         })))
-        .map(mapFn(({src, dest}) => src.files
+        .map(mapFn(async ({src, dest}) => src.files
             .then(mapFn(file => ({
                 file: path.resolve(src.dir, file),
                 dest: {
@@ -51,10 +51,10 @@ export default async function publish(config: Config, context: Context): Promise
                     contentType: getType(file)
                 }
             })))))
-        .map(files => Promise.all(files))
-        .map(files => files.then(concatMapFn(file => file)))
-        .map(files => files
-            .then(mapFn(({file, dest}) => () => {
+        .map(async files => Promise.all(files))
+        .map(async files => files.then(concatMapFn(file => file)))
+        .map(async files => files
+            .then(mapFn(({file, dest}) => async () => {
                 logger.log(`Uploading ${file} to ${dest.bucket}:${dest.key}`);
                 return new Promise<S3.PutObjectOutput>((resolve, reject) =>
                     s3.putObject({
@@ -64,7 +64,7 @@ export default async function publish(config: Config, context: Context): Promise
                         ContentType: dest.contentType || void 0
                     }, (err, data) => err ? reject(err) : resolve(data)));
             })))
-        .map(actions => actions.then(parallel))
-        .map(result => result.then((_: ReadonlyArray<S3.PutObjectOutput>) => void 0))
+        .map(async actions => actions.then(parallel))
+        .map(async result => result.then((_: ReadonlyArray<S3.PutObjectOutput>) => void 0))
         .value;
 }
