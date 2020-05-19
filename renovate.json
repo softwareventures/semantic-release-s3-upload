@@ -1,17 +1,5 @@
 {
   "extends": [
-    "@softwareventures:js-lib"
-  ],
-  "packageRules": [
-    {
-      "packageNames": [
-        "aws-sdk"
-      ],
-      "updateTypes": [
-        "minor",
-        "patch"
-      ],
-      "automerge": true
-    }
+    "@softwareventures:lib"
   ]
 }
