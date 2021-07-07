@@ -3,10 +3,10 @@
   "version": "0.0.0-development",
   "description": "semantic-release plugin that uploads files to Amazon S3",
   "keywords": [
-    "semantic-release",
+    "aws",
     "publish",
     "s3",
-    "aws"
+    "semantic-release"
   ],
   "author": "Daniel Cassidy <mail@danielcassidy.me.uk>",
   "homepage": "https://github.com/softwareventures/semantic-release-s3-upload",
@@ -27,6 +27,9 @@
     "globby": "^11.0.0",
     "mime": "^2.4.4",
     "tslib": "2.3.0"
+  },
+  "peerDependencies": {
+    "semantic-release": "^15.13.27 || ^16.0.0 || ^17.0.0"
   },
   "devDependencies": {
     "@softwareventures/semantic-release-config": "1.1.1",
@@ -52,9 +55,6 @@
     "require": [
       "ts-node/register"
     ]
-  },
-  "peerDependencies": {
-    "semantic-release": "^15.13.27 || ^16.0.0 || ^17.0.0"
   },
   "release": {
     "extends": "@softwareventures/semantic-release-config"
