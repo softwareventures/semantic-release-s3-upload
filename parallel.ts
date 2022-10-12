@@ -1,3 +1,4 @@
+import {notNull} from "@softwareventures/nullable";
 import * as os from "os";
 
 export default async function parallel<T>(tasks: ReadonlyArray<() => Promise<T>>, threads = 0): Promise<T[]> {
@@ -11,7 +12,7 @@ export default async function parallel<T>(tasks: ReadonlyArray<() => Promise<T>>
     async function run(): Promise<void> {
         const i = nextTaskIndex++;
         if (i < tasks.length) {
-            const result = tasks[i]();
+            const result = notNull(tasks[i])();
             results[i] = result;
 
             return result.then(run);

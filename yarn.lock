@@ -502,6 +502,13 @@
   dependencies:
     tslib "2.3.0"
 
+"@softwareventures/nullable@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@softwareventures/nullable/-/nullable-3.0.0.tgz#979045c99e7c8a9055cb25c3c5cb5b9edfc50085"
+  integrity sha512-kgYOGJHzgZl0QGqMqbRe34i5VaRQUsG+X9AcblJL1lGDq+npLsCS974VSJmOBxnSqIQ5dcgah+zBxHndH8qzfg==
+  dependencies:
+    tslib "2.4.0"
+
 "@softwareventures/ordered@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@softwareventures/ordered/-/ordered-1.1.0.tgz#5bd8929574d309738f6bcccaa017557979a4e303"

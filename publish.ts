@@ -1,5 +1,6 @@
 import {concatMapFn, copy, mapFn} from "@softwareventures/array";
 import chain from "@softwareventures/chain";
+import {notNull} from "@softwareventures/nullable";
 import {Credentials, S3} from "aws-sdk";
 import * as fs from "fs";
 import globby = require("globby");
@@ -18,8 +19,8 @@ export default async function publish(config: Config, context: Context): Promise
 
     const {logger} = context;
 
-    const accessKeyId = context.env.AWS_ACCESS_KEY_ID;
-    const secretAccessKey = context.env.AWS_SECRET_ACCESS_KEY;
+    const accessKeyId = notNull(context.env["AWS_ACCESS_KEY_ID"]);
+    const secretAccessKey = notNull(context.env["AWS_SECRET_ACCESS_KEY"]);
 
     const s3 = new S3({
         apiVersion: "2006-03-01",
@@ -61,7 +62,7 @@ export default async function publish(config: Config, context: Context): Promise
                         Bucket: dest.bucket,
                         Key: dest.key,
                         Body: fs.createReadStream(file),
-                        ContentType: dest.contentType || void 0
+                        ...(dest.contentType == null ? null : {ContentType: dest.contentType})
                     }, (err, data) => err ? reject(err) : resolve(data)));
             })))
         .map(async actions => actions.then(parallel))
