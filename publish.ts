@@ -1,5 +1,5 @@
 import {concatMapFn, copy, mapFn} from "@softwareventures/array";
-import chain from "@softwareventures/chain";
+import {chain} from "@softwareventures/chain";
 import {notNull} from "@softwareventures/nullable";
 import {Credentials, S3} from "aws-sdk";
 import * as fs from "fs";
