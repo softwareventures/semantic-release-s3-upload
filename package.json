@@ -38,7 +38,7 @@
     "semantic-release": "^15.13.27 || ^16.0.0 || ^17.0.0 || ^19.0.0 || ^20.0.0"
   },
   "devDependencies": {
-    "@softwareventures/semantic-release-config": "4.0.0",
+    "@softwareventures/semantic-release-config": "4.1.0",
     "@softwareventures/tsconfig": "7.1.0",
     "@softwareventures/tslint-rules": "2.0.0",
     "@types/semantic-release": "20.0.6",
