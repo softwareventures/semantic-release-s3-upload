@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "@softwareventures/semantic-release-config": "4.0.0",
-    "@softwareventures/tsconfig": "7.1.0",
+    "@softwareventures/tsconfig": "8.1.0",
     "@softwareventures/tslint-rules": "2.0.0",
     "@types/semantic-release": "20.0.6",
     "ava": "5.3.1",
